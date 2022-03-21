@@ -13,7 +13,6 @@ const Todo: React.FC = () => {
     }
     const [todos, setTodos] = useState<TodoType[]>([]);
     const [selectedTodo, setSelectedTodo] = useState<TodoType[]>([]);
-    const [editedTodo, setEditedTodo] = useState({id: 0, title: '', body: ''})
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
 
