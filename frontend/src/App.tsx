@@ -1,9 +1,9 @@
-import Blog from "./components/Todo";
+import Todo from "./components/Todo";
 
 const App: React.FC = () => {
   return (
     <>
-      <Blog/>
+      <Todo/>
     </>
   );
 }

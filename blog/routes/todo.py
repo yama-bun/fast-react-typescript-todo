@@ -5,8 +5,8 @@ from ..functions import todo
 from sqlalchemy.orm import Session
 
 router = APIRouter(
-    prefix='/blog',
-    tags=['blogs'],
+    prefix='/todo',
+    tags=['todos'],
 )
 
 # 全件取得

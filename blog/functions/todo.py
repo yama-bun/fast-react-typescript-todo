@@ -31,7 +31,7 @@ def update(id:int, request: Todo, db: Session):
     todo.update(request.dict())
     db.commit()
 
-    return 'Update completed'
+    return todo
 
 # 削除
 def destroy(id:int, db:Session):
