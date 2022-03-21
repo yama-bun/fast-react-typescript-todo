@@ -2,7 +2,7 @@ from curses.ascii import HT
 from fastapi import FastAPI
 from .models import Base
 from .database import engine
-from .routes import blog
+from .routes import todo
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -20,6 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(blog.router)
+app.include_router(todo.router)
 
 Base.metadata.create_all(engine)

@@ -1,6 +1,6 @@
-import Blog from "./Blog";
+import Blog from "./components/Todo";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Blog/>
