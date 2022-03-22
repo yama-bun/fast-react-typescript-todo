@@ -15,13 +15,14 @@ const Todo: React.FC = () => {
     const [selectedTodo, setSelectedTodo] = useState<TodoType[]>([]);
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
+    const [done, setDone] = useState<boolean>(false);
 
 
     // 全件取得
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/todo/")
             .then((res) => setTodos(res.data));
-    }, []);
+    }, [done]);
 
     // id取得
     const getTodo = (id: number) => {
@@ -45,15 +46,14 @@ const Todo: React.FC = () => {
     const putTodoHandler = (id: number) => {
         axios
             .put(`http://127.0.0.1:8000/todo/${id}`, { id: id, title: title, body: body })
-            .then((res) => {
-                console.log(res)
-            });
+            setDone(prevDone=> !prevDone)
     };
 
     // 削除
     const deleteTodoHandler = (id: number) => {
         axios.delete(`http://127.0.0.1:8000/todo/${id}`)
-            .then(res => { setTodos(todos.filter(todo => todo.id !== id));  setSelectedTodo([])})
+            .then(res => { setTodos(todos.filter(todo => todo.id !== id)); setSelectedTodo([]) })
+
     }
 
     return (
